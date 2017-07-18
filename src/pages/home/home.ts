@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { CardsPage } from '../cards/cards';
 
 declare var google;
 
@@ -9,7 +10,10 @@ declare var google;
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+	
+	  goToCardsPage(){
+    this.navCtrl.push(CardsPage);}
+	
   @ViewChild('map') mapElement: ElementRef;
   map: any;
 
@@ -20,14 +24,22 @@ export class HomePage {
   ionViewDidLoad(){
     this.loadMap();
   }
-
+	
   loadMap(){
 
     this.geolocation.getCurrentPosition().then((position) => {
 
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-      let mapOptions = {
+var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+  var marker = new google.maps.Marker({
+    position: latLng,
+    map: this.map,
+    icon: iconBase + 'parking_lot_maps.png'
+  });
+	
+
+	let mapOptions = {
         center: latLng,
         styles:[
   {
@@ -286,13 +298,13 @@ export class HomePage {
 
       }
 
+	this.addInfoWindow(marker);	
 
-      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions,);
 
     }, (err) => {
       console.log(err);
     });
 
   }
-
 }

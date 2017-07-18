@@ -1,11 +1,19 @@
-<ion-header>
+<ion-header no-border>
+
+<ion-navbar transparent>
+
+<ion-searchbar hideCancelButton="false">
+</ion-searchbar>
+
+</ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content scrollbar-y-auto>
+
 <ion-fab bottom right >
   <button ion-fab color="primary"> <ion-icon name="apps"></ion-icon>	</button>
   <ion-fab-list side="top">
-    <button ion-fab><ion-icon name="star-half"></ion-icon></button>
+    <button (click)="goToCardsPage()" ion-fab><ion-icon name="star-half"></ion-icon></button>
   </ion-fab-list>
   <ion-fab-list side="left">
     <button ion-fab> <ion-icon name="female"></ion-icon> </button>
