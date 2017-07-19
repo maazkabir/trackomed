@@ -2,11 +2,22 @@
 
 <ion-navbar transparent>
 
-<ion-searchbar hideCancelButton="false">
+<ion-searchbar
+  [showCancelButton]="shouldShowCancel">	
 </ion-searchbar>
 
 </ion-navbar>
 </ion-header>
+
+<ion-menu type="overlay" swipeEnabled="false" [content]="mycontent">
+  <ion-content>
+    <ion-list>
+      <p>some menu content, could be list items</p>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav #mycontent [root]="rootPage"></ion-nav>
+
 
 <ion-content scrollbar-y-auto>
 
@@ -21,7 +32,7 @@
   </ion-fab-list>
 </ion-fab>
 <ion-fab bottom left >
-  <button ion-fab color="primary"> <ion-icon name="menu"></ion-icon>	</button>
+  <button menuToggle ion-fab color="primary"> <ion-icon name="menu"></ion-icon>	</button>
 	</ion-fab>
 <div #map id="map"></div>  
  

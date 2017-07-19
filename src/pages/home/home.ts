@@ -18,10 +18,14 @@ export class HomePage {
   map: any; 
  
   constructor(public navCtrl: NavController, public geolocation: Geolocation) { 
- this.loadMap();
+	
   }
+
+
  
-  
+ionViewDidLoad() {
+this.loadMap();
+}  
 
   loadMap() {
     this.geolocation.getCurrentPosition().then((position) => {
@@ -37,5 +41,8 @@ export class HomePage {
     }, (err) => {
       console.log(err);
     });
+
+
   }
+
 }
