@@ -7,7 +7,8 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CardsPage } from '../pages/cards/cards';
-
+import { ConnectivityService } from '../providers/connectivity-service/connectivity-service';
+import { Network } from '@ionic-native/network';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,11 @@ import { CardsPage } from '../pages/cards/cards';
   providers: [
     StatusBar,
     SplashScreen,
+    ConnectivityService,
     Geolocation,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Network,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    
   ]
 })
 export class AppModule {}

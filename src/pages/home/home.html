@@ -9,12 +9,40 @@
 </ion-navbar>
 </ion-header>
 
-<ion-menu type="overlay" swipeEnabled="false" [content]="mycontent">
-  <ion-content>
+<ion-menu  type="overlay" swipeEnabled="false" [content]="mycontent">
+<ion-header >
+    <ion-toolbar color="primary">
+  <ion-title>TrackoMed</ion-title>
+    </ion-toolbar>
+  </ion-header>  
+<ion-content scrollbar-y-auto>
     <ion-list>
-      <p>some menu content, could be list items</p>
+      <button ion-item>
+<ion-icon name="person"  color="primary"></ion-icon>
+        My Profile
+      </button>
+      <button ion-item >
+	<ion-icon name="pricetags"  color="primary"></ion-icon>
+        Promocode
+      </button>
+      <button ion-item >
+	  <ion-icon name="card"  color="primary"></ion-icon>
+        Payments
+      </button>
+      <button ion-item >
+	 <ion-icon name="contact"  color="primary"></ion-icon>
+        Contact Us
+      </button>
+	<button ion-item>
+	 <ion-icon name="settings"   color="primary"></ion-icon>
+	Settings
+      </button>
+	<button ion-item >
+	 <ion-icon name="create"  color="primary"></ion-icon>
+	Report/Feedback
+      </button>
     </ion-list>
-  </ion-content>
+  </ion-content>  
 </ion-menu>
 <ion-nav #mycontent [root]="rootPage"></ion-nav>
 
@@ -24,11 +52,11 @@
 <ion-fab bottom right >
   <button ion-fab color="primary"> <ion-icon name="apps"></ion-icon>	</button>
   <ion-fab-list side="top">
-    <button (click)="goToCardsPage()" ion-fab><ion-icon name="star-half"></ion-icon></button>
+    <button (click)="goToCardsPage()" ion-fab><ion-icon name="star-half"  color="secondary"></ion-icon></button>
   </ion-fab-list>
   <ion-fab-list side="left">
-    <button ion-fab> <ion-icon name="female"></ion-icon> </button>
-	<button ion-fab> <ion-icon name="hand"></ion-icon> </button>
+    <button (click)="presentAlert()" ion-fab> <ion-icon name="woman" color="secondary"></ion-icon> </button>
+	<button ion-fab> <ion-icon name="hand" color="secondary"></ion-icon> </button>
   </ion-fab-list>
 </ion-fab>
 <ion-fab bottom left >

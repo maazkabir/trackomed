@@ -1,7 +1,10 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { CardsPage } from '../cards/cards';
+import { ConnectivityService } from '../../providers/connectivity-service/connectivity-service';
+
 
 declare var google;
 
@@ -14,10 +17,24 @@ export class HomePage {
 	  goToCardsPage(){
     this.navCtrl.push(CardsPage);}
 
-@ViewChild('map') mapElement: ElementRef; 
-  map: any; 
+	
+		presentAlert() {
+  let alert = this.alertCtrl.create({
+    title: 'No Connection',
+    subTitle: 'Please Turn On the Internet',
+    buttons: ['Dismiss']
+  });
+  alert.present();
+}  
+
+
+@ViewChild('map') mapElement: ElementRef;
  
-  constructor(public navCtrl: NavController, public geolocation: Geolocation) { 
+  map: any;
+  mapInitialised: boolean = false;
+  apiKey: any;//AIzaSyD6hMHss5-A960JlIu2T6cvD4H3HIylvns
+
+  constructor(public navCtrl: NavController, public connectivityService: ConnectivityService, public geolocation: Geolocation, public alertCtrl: AlertController) { 
 	
   }
 
@@ -25,11 +42,65 @@ export class HomePage {
  
 ionViewDidLoad() {
 this.loadMap();
-}  
+}
 
-  loadMap() {
+
+
+loadMap(){
+ 
+    this.addConnectivityListeners();
+ 
+  if(typeof google == "undefined" || typeof google.maps == "undefined"){
+ 
+    console.log("Google maps JavaScript needs to be loaded.");
+    this.disableMap();
+ 
+    if(this.connectivityService.isOnline()){
+      console.log("online, loading map");
+ 
+      //Load the SDK
+      window['mapInit'] = () => {
+        this.initMap();
+        this.enableMap();
+      }
+ 
+      let script = document.createElement("script");
+      script.id = "googleMaps";
+ 
+      if(this.apiKey){
+        script.src = 'http://maps.google.com/maps/api/js?key=AIzaSyD6hMHss5-A960JlIu2T6cvD4H3HIylvns' + '&callback=mapInit';
+      } else {
+        script.src = 'http://maps.google.com/maps/api/js?key=AIzaSyD6hMHss5-A960JlIu2T6cvD4H3HIylvns&callback=mapInit';       
+      }
+ 
+      document.body.appendChild(script);  
+ 
+    } 
+  }
+  else {
+ 
+    if(this.connectivityService.isOnline()){
+      console.log("showing map");
+      this.initMap();
+      this.enableMap();
+    }
+    else {
+      console.log("disabling map");
+      this.disableMap();
+    }
+ 
+  }
+ 
+  }
+ 
+  initMap(){
+ 
+    this.mapInitialised = true;
+ 
     this.geolocation.getCurrentPosition().then((position) => {
+ 
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+ 
       let mapOptions = {
         center: latLng,
 	disableDefaultUI: true,
@@ -37,12 +108,52 @@ this.loadMap();
         zoom: 17,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
+ 
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-    }, (err) => {
-      console.log(err);
+ 
     });
-
-
+ 
   }
+ 
+  disableMap(){
+    console.log("disable map");
+  }
+ 
+  enableMap(){
+    console.log("enable map");
+  }
+ 
 
-}
+  addConnectivityListeners(){
+ 
+    let onOnline = () => {
+ 
+      setTimeout(() => {
+        if(typeof google == "undefined" || typeof google.maps == "undefined"){
+ 
+          this.loadMap();
+ 
+        } else {
+ 
+          if(!this.mapInitialised){
+            this.initMap();
+          }
+ 
+          this.enableMap();
+        }
+      }, 2000);
+ 
+    };
+ 
+    let onOffline = () => {
+	this.presentAlert();		
+	this.disableMap();
+    };
+ 
+    document.addEventListener('online', onOnline, false);
+    document.addEventListener('offline', onOffline, false);
+ 
+  }
+ 
+}	
+
