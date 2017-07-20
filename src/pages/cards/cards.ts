@@ -17,8 +17,6 @@ export class CardsPage {
 
   }
 
-
-
   options : GeolocationOptions;
   currentPos : Geoposition;
   places : Array<any> ;
