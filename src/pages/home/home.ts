@@ -10,22 +10,22 @@ declare var google;
   templateUrl: 'home.html'
 })
 export class HomePage {
-	
+
 	  goToCardsPage(){
     this.navCtrl.push(CardsPage);}
 
-@ViewChild('map') mapElement: ElementRef; 
-  map: any; 
- 
-  constructor(public navCtrl: NavController, public geolocation: Geolocation) { 
-	
+@ViewChild('map') mapElement: ElementRef;
+  map: any;
+
+  constructor(public navCtrl: NavController, public geolocation: Geolocation) {
+
   }
 
 
- 
+
 ionViewDidLoad() {
 this.loadMap();
-}  
+}
 
   loadMap() {
     this.geolocation.getCurrentPosition().then((position) => {
