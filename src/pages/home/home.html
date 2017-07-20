@@ -9,36 +9,37 @@
 </ion-navbar>
 </ion-header>
 
-<ion-menu  type="overlay" swipeEnabled="false" [content]="mycontent">
-<ion-header >
-    <ion-toolbar color="primary">
+<ion-menu type="overlay" swipeEnabled="false" [content]="mycontent">
+<!--<ion-header >
+    <ion-toolbar class>
   <ion-title>TrackoMed</ion-title>
     </ion-toolbar>
-  </ion-header>  
-<ion-content scrollbar-y-auto>
+  </ion-header>  -->
+<ion-content scrollbar-y-auto class="custom">
     <ion-list>
-      <button ion-item>
-<ion-icon name="person"  color="primary"></ion-icon>
+<ion-item no-lines><b>TrackoMed</b></ion-item>
+      <button ion-item no-lines>
+<ion-icon name="person"  ></ion-icon>
         My Profile
       </button>
-      <button ion-item >
-	<ion-icon name="pricetags"  color="primary"></ion-icon>
+      <button ion-item no-lines >
+	<ion-icon name="pricetags"  ></ion-icon>
         Promocode
       </button>
-      <button ion-item >
-	  <ion-icon name="card"  color="primary"></ion-icon>
+      <button ion-item no-lines>
+	  <ion-icon name="card"  ></ion-icon>
         Payments
       </button>
-      <button ion-item >
-	 <ion-icon name="contact"  color="primary"></ion-icon>
+      <button ion-item no-lines>
+	 <ion-icon name="contact"  ></ion-icon>
         Contact Us
       </button>
-	<button ion-item>
-	 <ion-icon name="settings"   color="primary"></ion-icon>
+	<button ion-item no-lines>
+	 <ion-icon name="settings"  ></ion-icon>
 	Settings
       </button>
-	<button ion-item >
-	 <ion-icon name="create"  color="primary"></ion-icon>
+	<button ion-item no-lines>
+	 <ion-icon name="create"  ></ion-icon>
 	Report/Feedback
       </button>
     </ion-list>
