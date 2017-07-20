@@ -4,6 +4,9 @@ import { Geolocation ,GeolocationOptions ,Geoposition ,PositionError } from '@io
 
 
 declare var google;
+
+
+
 @Component({
   selector: 'cards-page',
   templateUrl: 'cards.html'
