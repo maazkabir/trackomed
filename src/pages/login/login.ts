@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
 import firebase from 'firebase';
 
@@ -35,6 +35,10 @@ export class LoginPage {
       }
     });
   }
+
+	gotohome(){
+	this.navCtrl.setRoot(HomePage);
+	}
 
   loginUser(): void {
   this.googlePlus.login({

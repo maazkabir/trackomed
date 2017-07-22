@@ -4,7 +4,10 @@ import { AlertController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { CardsPage } from '../cards/cards';
 import { ConnectivityService } from '../../providers/connectivity-service/connectivity-service';
-
+import { LoadingController } from 'ionic-angular';
+import { Platform } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+import { Intro } from '../intro/intro';
 
 declare var google;
 
@@ -13,7 +16,7 @@ declare var google;
   templateUrl: 'home.html'
 })
 export class HomePage {
-	
+	loader: any;
 	  goToCardsPage(){
     this.navCtrl.push(CardsPage);}
 
@@ -27,6 +30,16 @@ export class HomePage {
   alert.present();
 }  
 
+presentLoading() {
+ 
+    this.loader = this.loadingCtrl.create({
+      content: "Fetching Maps..."
+    });
+ 
+    this.loader.present();
+ 
+  }
+
 
 @ViewChild('map') mapElement: ElementRef;
  
@@ -34,13 +47,26 @@ export class HomePage {
   mapInitialised: boolean = false;
   apiKey: any;//AIzaSyD6hMHss5-A960JlIu2T6cvD4H3HIylvns
 
-  constructor(public navCtrl: NavController, public connectivityService: ConnectivityService, public geolocation: Geolocation, public alertCtrl: AlertController) { 
-	
-  }
+  constructor(platform: Platform, public navCtrl: NavController, public connectivityService: ConnectivityService, public geolocation: Geolocation, public alertCtrl: AlertController,  public loadingCtrl: LoadingController, public storage: Storage) { 
+		this.presentLoading();
+	platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.    
+        this.loader.dismiss();	
 
+});
+
+  }
 
  
 ionViewDidLoad() {
+this.storage.get('intro-done').then(done => {
+this.storage.clear();//REMOVE WHILE DEPLOYING    
+if (!done) {
+      this.storage.set('intro-done', true);
+      this.navCtrl.setRoot(Intro);
+    }
+  });
 this.loadMap();
 }
 
@@ -108,7 +134,7 @@ loadMap(){
         zoom: 17,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
- 
+
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
  
     });

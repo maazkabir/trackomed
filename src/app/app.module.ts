@@ -9,22 +9,31 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { CardsPage } from '../pages/cards/cards';
 import { ConnectivityService } from '../providers/connectivity-service/connectivity-service';
 import { Network } from '@ionic-native/network';
+import { IonicStorageModule } from '@ionic/storage';
+import { Intro } from '../pages/intro/intro';
+import { LoginPage } from '../pages/login/login';
+import { GooglePlus } from '@ionic-native/google-plus';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    CardsPage
+    CardsPage,
+    Intro,
+    LoginPage	
   ],
   imports: [
     BrowserModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    CardsPage
+    CardsPage,
+    Intro,
+    LoginPage
   ],
   providers: [
     StatusBar,
@@ -32,6 +41,7 @@ import { Network } from '@ionic-native/network';
     ConnectivityService,
     Geolocation,
     Network,
+    GooglePlus,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     
   ]
