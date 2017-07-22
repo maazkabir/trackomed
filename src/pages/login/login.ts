@@ -47,6 +47,7 @@ export class LoginPage {
   }).then( res => {
     firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken))
       .then( success => {
+        this.navCtrl.setRoot(HomePage);
         console.log("Firebase success: " + JSON.stringify(success));
       })
       .catch( error => console.log("Firebase failure: " + JSON.stringify(error)));

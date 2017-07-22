@@ -12,6 +12,14 @@ import { Network } from '@ionic-native/network';
 import { IonicStorageModule } from '@ionic/storage';
 import { Intro } from '../pages/intro/intro';
 import { LoginPage } from '../pages/login/login';
+import { ProfilePage } from '../pages/profile/profile';
+import { PromocodePage } from '../pages/promocode/promocode';
+import { PaymentsPage } from '../pages/payments/payments';
+import { ContactUsPage } from '../pages/contact-us/contact-us';
+import { SettingsPage } from '../pages/settings/settings';
+import { ReportPage } from '../pages/report/report';
+
+
 import { GooglePlus } from '@ionic-native/google-plus';
 
 @NgModule({
@@ -20,7 +28,13 @@ import { GooglePlus } from '@ionic-native/google-plus';
     HomePage,
     CardsPage,
     Intro,
-    LoginPage	
+    LoginPage,
+    ProfilePage,
+    PromocodePage,
+    PaymentsPage,
+    ContactUsPage,
+    SettingsPage,
+    ReportPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +47,13 @@ import { GooglePlus } from '@ionic-native/google-plus';
     HomePage,
     CardsPage,
     Intro,
-    LoginPage
+    LoginPage,
+    ProfilePage,
+    PromocodePage,
+    PaymentsPage,
+    ContactUsPage,
+    SettingsPage,
+    ReportPage
   ],
   providers: [
     StatusBar,
@@ -43,7 +63,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
     Network,
     GooglePlus,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    
+
   ]
 })
 export class AppModule {}

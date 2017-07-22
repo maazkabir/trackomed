@@ -30,11 +30,13 @@
         "@ngx-translate/core": "^7.1.0",
         "@ngx-translate/http-loader": "^0.1.0",
         "cordova-android": "^6.2.3",
+        "cordova-ios": "^4.4.0",
         "cordova-plugin-compat": "^1.1.0",
         "cordova-plugin-console": "^1.0.5",
         "cordova-plugin-device": "^1.1.4",
         "cordova-plugin-geolocation": "^2.4.3",
         "cordova-plugin-googleplus": "^5.1.1",
+        "cordova-plugin-inappbrowser": "^1.7.1",
         "cordova-plugin-network-information": "^1.3.3",
         "cordova-plugin-splashscreen": "^4.0.3",
         "cordova-plugin-statusbar": "^2.2.2",
@@ -67,10 +69,12 @@
             "cordova-plugin-googleplus": {
                 "REVERSED_CLIENT_ID": "com.googleusercontent.apps.682956519321-1o2ef5relk8n10cdlv6uh3bfsclt332g"
             },
-            "cordova-plugin-network-information": {}
+            "cordova-plugin-network-information": {},
+            "cordova-plugin-inappbrowser": {}
         },
         "platforms": [
-            "android"
+            "android",
+            "ios"
         ]
     }
 }

@@ -7,7 +7,7 @@
 <ion-header>
 <ion-navbar>
 <ion-buttons end>
-<button ion-button (click)="gotohome()">Skip</button>  
+<button ion-button (click)="gotohome()">Skip</button>
     </ion-buttons></ion-navbar>
 
 </ion-header>
@@ -15,18 +15,18 @@
 
 
 <ion-content padding>
-  
+
 <button ion-button block color="danger" (click)="loginUser()" *ngIf="!userProfile">
     <ion-icon name="logo-googleplus"></ion-icon>
     Login with Google
   </button>
 
-  <ion-item *ngIf="userProfile">
+  <!--<ion-item *ngIf="userProfile">
     <ion-avatar item-left>
       <img [src]="userProfile.photoURL">
     </ion-avatar>
     <h2>{{ userProfile.displayName }}</h2>
     <h3>{{ userProfile.email }}</h3>
-  </ion-item>
+  </ion-item>-->
 
 </ion-content>

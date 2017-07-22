@@ -18,32 +18,32 @@
 <ion-content scrollbar-y-auto class="custom">
     <ion-list>
 <ion-item no-lines><b>TrackoMed</b></ion-item>
-      <button ion-item no-lines>
-<ion-icon name="person"  ></ion-icon>
+      <button (click)="goToProfile()" ion-item no-lines>
+<ion-icon name="person"></ion-icon>
         My Profile
       </button>
-      <button ion-item no-lines >
+      <button (click)="goToPromocode()" ion-item no-lines >
 	<ion-icon name="pricetags"  ></ion-icon>
         Promocode
       </button>
-      <button ion-item no-lines>
+      <button (click)="goToPayments()" ion-item no-lines>
 	  <ion-icon name="card"  ></ion-icon>
         Payments
       </button>
-      <button ion-item no-lines>
+      <button (click)="goToContactUs()" ion-item no-lines>
 	 <ion-icon name="contact"  ></ion-icon>
         Contact Us
       </button>
-	<button ion-item no-lines>
+	<button (click)="goToSettings()" ion-item no-lines>
 	 <ion-icon name="settings"  ></ion-icon>
 	Settings
       </button>
-	<button ion-item no-lines>
+	<button (click)="goToReport()" ion-item no-lines>
 	 <ion-icon name="create"  ></ion-icon>
 	Report/Feedback
       </button>
     </ion-list>
-  </ion-content>  
+  </ion-content>
 </ion-menu>
 <ion-nav #mycontent [root]="rootPage"></ion-nav>
 
