@@ -140,13 +140,23 @@ loadMap(){
         zoom: 17,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
+	var image = '../../assets/icon/dot.png';
+        var marker = new google.maps.Marker({
+          position: latLng,
+          map: this.map,
+          icon: image
+        });
+	
 
-      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+	this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+	   marker.setMap(this.map);
 
-    });
+});
+
 
   }
 
+	
   disableMap(){
     console.log("disable map");
   }
@@ -187,6 +197,7 @@ loadMap(){
 
   }
 
+	
   /*
   * Navigation functions
   */
