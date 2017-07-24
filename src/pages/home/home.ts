@@ -14,6 +14,8 @@ import { PaymentsPage } from '../payments/payments';
 import { ContactUsPage } from '../contact-us/contact-us';
 import { SettingsPage } from '../settings/settings';
 import { ReportPage } from '../report/report';
+import { CarePage } from '../care/care';
+import { DonatePage } from '../donate/donate';
 
 declare var google;
 
@@ -146,7 +148,7 @@ loadMap(){
           map: this.map,
           icon: image
         });
-	
+
 
 	this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 	   marker.setMap(this.map);
@@ -156,7 +158,7 @@ loadMap(){
 
   }
 
-	
+
   disableMap(){
     console.log("disable map");
   }
@@ -197,7 +199,7 @@ loadMap(){
 
   }
 
-	
+
   /*
   * Navigation functions
   */
@@ -224,6 +226,14 @@ loadMap(){
 
   goToReport(){
     this.navCtrl.push(ReportPage);
+  }
+
+  goToCarePage(){
+    this.navCtrl.push(CarePage);
+  }
+
+  goToDonatePage(){
+    this.navCtrl.push(DonatePage);
   }
 
 }

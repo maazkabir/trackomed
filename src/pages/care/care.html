@@ -1,0 +1,38 @@
+<!--
+  Generated template for the CarePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Care</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+  <ion-item>
+    <ion-label>Notifications</ion-label>
+    <ion-toggle [(ngModel)]="toggle1" (ionChange)="presentToast()"></ion-toggle>
+  </ion-item>
+
+
+  <button (click)="scheduleNotification1()" ion-button full outline icon-end>First Trimester(1-3Months)
+    <ion-icon name="arrow-forward"></ion-icon>
+  </button>
+
+  <button (click)="scheduleNotification2()"
+  ion-button full outline icon-end>Second Trimester(4-6Months)
+    <ion-icon name="arrow-forward"></ion-icon>
+  </button>
+
+  <button (click)="scheduleNotification3()" ion-button full outline icon-end>Third Trimester(7-9Months)
+    <ion-icon name="arrow-forward"></ion-icon>
+  </button>
+  </ion-list>
+</ion-content>

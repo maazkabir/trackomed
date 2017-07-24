@@ -1,0 +1,20 @@
+page-donate {
+  //background-image: url('../../img/gonate.jpg');
+  .login-background {
+  background: url('../assets/donate.jpg');
+  background-size: auto;
+  }
+  .item.item-input {
+    background-color: transparent;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .backbutton {
+    position: bottom;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -104.5px; /*104.5px is half of the button's width*/
+}
+}

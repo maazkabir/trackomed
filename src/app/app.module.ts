@@ -18,9 +18,16 @@ import { PaymentsPage } from '../pages/payments/payments';
 import { ContactUsPage } from '../pages/contact-us/contact-us';
 import { SettingsPage } from '../pages/settings/settings';
 import { ReportPage } from '../pages/report/report';
-
-
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { ToastController } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
+import { CarePage } from '../pages/care/care';
+import { FtrimesterPage } from '../pages/ftrimester/ftrimester';
+import { StrimesterPage } from '../pages/strimester/strimester';
+import { TtrimesterPage } from '../pages/ttrimester/ttrimester';
+import { DonatePage } from '../pages/donate/donate';
+
+
 
 @NgModule({
   declarations: [
@@ -34,7 +41,12 @@ import { GooglePlus } from '@ionic-native/google-plus';
     PaymentsPage,
     ContactUsPage,
     SettingsPage,
-    ReportPage
+    ReportPage,
+    CarePage,
+    FtrimesterPage,
+    StrimesterPage,
+    TtrimesterPage,
+    DonatePage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +65,12 @@ import { GooglePlus } from '@ionic-native/google-plus';
     PaymentsPage,
     ContactUsPage,
     SettingsPage,
-    ReportPage
+    ReportPage,
+    CarePage,
+    FtrimesterPage,
+    StrimesterPage,
+    TtrimesterPage,
+    DonatePage
   ],
   providers: [
     StatusBar,
@@ -62,8 +79,8 @@ import { GooglePlus } from '@ionic-native/google-plus';
     Geolocation,
     Network,
     GooglePlus,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-
+    LocalNotifications,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}
