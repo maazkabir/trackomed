@@ -58,9 +58,7 @@ presentLoading() {
   apiKey: any;//AIzaSyD6hMHss5-A960JlIu2T6cvD4H3HIylvns
 
   constructor(platform: Platform, public navCtrl: NavController, public connectivityService: ConnectivityService, public geolocation: Geolocation, public alertCtrl: AlertController,  public loadingCtrl: LoadingController, public storage: Storage) {
-
-        //this.initializeItems();
-
+		
 	this.presentLoading();
 	platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -82,6 +80,8 @@ if (!done) {
 this.loadMap();
 }
 
+
+
 initializeItems(){
     this.items = [
       {"name":"Crocin","place":"Madan Medical","lat":"17.3938736","long":"78.4427487"},
@@ -95,8 +95,8 @@ initializeItems(){
       {"name":"Dettol","place":"Sri Sai Hemanth Medical Hall General Stores","lat":"17.3626936","long":"78.4178855"},
       {"name":"Savlon","place":"Sri Sai Hemanth Medical Hall General Stores","lat":"17.3626936","long":"78.4178855"},
       {"name":"Strepsils ","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
-
-
+      
+      
     ]
   }
 
@@ -171,14 +171,42 @@ loadMap(){
           icon: image
         });
 
-
+	
 	this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 	   marker.setMap(this.map);
+	
+	
+
+
+
+
 
 });
 
-
   }
+
+viewMarker(itemno)
+{
+ var i=itemno;
+  var item = [
+      {"id":0,"name":"Crocin","place":"Madan Medical","lat":"17.3938736","long":"78.4427487"},
+      {"id":1,"name":"Panadol","place":"SS Medical Hall","lat":"17.3920913","long":"78.441873"},
+      {"id":2,"name":"Advil","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
+      {"id":3,"name":"Concor","place":"Mohan Medical Hall","lat":"7.3916576","long":"78.4259753"},
+    ]
+
+var items = item[i],
+     LatLng = new google.maps.LatLng(items.lat, items.long); 
+
+  // Creating a marker and putting it on the map
+  var markers = new google.maps.Marker({
+    position: LatLng,
+    map: this.map,
+    title: items.place
+ });
+markers.setMap(this.map);
+
+}
 
 
   disableMap(){
@@ -293,7 +321,6 @@ getItems(ev: any) {
       })
     }
   }
-
 
 
 }
