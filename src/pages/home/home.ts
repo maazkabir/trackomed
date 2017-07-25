@@ -90,8 +90,8 @@ initializeItems(){
       {"id":"3","name":"Calpal","place":"SS Medical Hall","lat":"17.3920913","long":"78.441873"},
       {"id":"4","name":"Octavin","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
       {"id":"5","name":"Advil","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
-      {"id":"6","name":"Concor","place":"Mohan Medical Hall","lat":"7.3916576","long":"78.4259753"},
-      {"id":"7","name":"Soframacin","place":"Mohan Medical Hall","lat":"7.3916576","long":"78.4259753"},
+      {"id":"6","name":"Concor","place":"Mohan Medical Hall","lat":"17.3916576","long":"78.4259753"},
+      {"id":"7","name":"Soframacin","place":"Mohan Medical Hall","lat":"17.3916576","long":"78.4259753"},
       {"id":"8","name":"Dettol","place":"Sri Sai Hemanth Medical Hall General Stores","lat":"17.3626936","long":"78.4178855"},
       {"id":"9","name":"Savlon","place":"Sri Sai Hemanth Medical Hall General Stores","lat":"17.3626936","long":"78.4178855"},
       {"id":"10","name":"Strepsils ","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
@@ -187,6 +187,7 @@ loadMap(){
 
 viewMarker(id:string)
 {
+
  var i=id;
   var item = [
       {"id":"0","name":"Crocin","place":"Madan Medical","lat":"17.3938736","long":"78.4427487"},
@@ -195,8 +196,8 @@ viewMarker(id:string)
       {"id":"3","name":"Calpal","place":"SS Medical Hall","lat":"17.3920913","long":"78.441873"},
       {"id":"4","name":"Octavin","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
       {"id":"5","name":"Advil","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
-      {"id":"6","name":"Concor","place":"Mohan Medical Hall","lat":"7.3916576","long":"78.4259753"},
-      {"id":"7","name":"Soframacin","place":"Mohan Medical Hall","lat":"7.3916576","long":"78.4259753"},
+      {"id":"6","name":"Concor","place":"Mohan Medical Hall","lat":"17.3916576","long":"78.4259753"},
+      {"id":"7","name":"Soframacin","place":"Mohan Medical Hall","lat":"17.3916576","long":"78.4259753"},
       {"id":"8","name":"Dettol","place":"Sri Sai Hemanth Medical Hall General Stores","lat":"17.3626936","long":"78.4178855"},
       {"id":"9","name":"Savlon","place":"Sri Sai Hemanth Medical Hall General Stores","lat":"17.3626936","long":"78.4178855"},
       {"id":"10","name":"Strepsils ","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
@@ -211,7 +212,6 @@ var items = item[i],
     map: this.map,
     title: items.place
  });
-markers.setMap(this.map);
 
 }
 
