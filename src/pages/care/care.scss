@@ -1,3 +1,13 @@
 page-care {
+  .login-background {
+  background: url('../assets/care.jpg');
+  background-size: auto;
+  }
 
+  .item.item-input {
+    background-color: reba(255, 255, 255, 0.0);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

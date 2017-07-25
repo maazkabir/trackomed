@@ -56,4 +56,21 @@ export class DonatePage {
     this.navCtrl.push(HomePage);
   }
 
+  /******initializeItems(){
+    this.items = {
+      {"name":"Crocin","place":"Madan Medical","lat":"17.3938736","long":"78.4427487"},
+      {"name":"Brakke","place":"Madan Medical","lat":"17.3938736","long":"78.4427487"},
+      {"name":"Panadol","place":"SS Medical Hall","lat":"17.3920913","long":"78.441873"},
+      {"name":"Calpal","place":"SS Medical Hall","lat":"17.3920913","long":"78.441873"},
+      {"name":"Octavin","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
+      {"name":"Advil","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
+      {"name":"Concor","place":"Mohan Medical Hall","lat":"7.3916576","long":"78.4259753"},
+      {"name":"Soframacin","place":"Mohan Medical Hall","lat":"7.3916576","long":"78.4259753"},
+      {"name":"Dettol","place":"Sri Sai Hemanth Medical Hall General Stores","lat":"17.3626936","long":"78.4178855"},
+      {"name":"Savlon","place":"Sri Sai Hemanth Medical Hall General Stores","lat":"17.3626936","long":"78.4178855"},
+      {"name":"Strepsils ","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
+
+
+    }
+  }******/
 }

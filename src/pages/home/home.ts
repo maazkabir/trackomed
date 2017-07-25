@@ -58,9 +58,9 @@ presentLoading() {
   apiKey: any;//AIzaSyD6hMHss5-A960JlIu2T6cvD4H3HIylvns
 
   constructor(platform: Platform, public navCtrl: NavController, public connectivityService: ConnectivityService, public geolocation: Geolocation, public alertCtrl: AlertController,  public loadingCtrl: LoadingController, public storage: Storage) {
-		
-        this.initializeItems();
-	
+
+        //this.initializeItems();
+
 	this.presentLoading();
 	platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -95,8 +95,8 @@ initializeItems(){
       {"name":"Dettol","place":"Sri Sai Hemanth Medical Hall General Stores","lat":"17.3626936","long":"78.4178855"},
       {"name":"Savlon","place":"Sri Sai Hemanth Medical Hall General Stores","lat":"17.3626936","long":"78.4178855"},
       {"name":"Strepsils ","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
-      
-      
+
+
     ]
   }
 
