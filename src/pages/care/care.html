@@ -6,33 +6,37 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar transparent>
     <ion-title>Care</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="login-background" padding>
 
   <ion-list>
-  <ion-item>
-    <ion-label>Notifications</ion-label>
-    <ion-toggle [(ngModel)]="toggle1" (ionChange)="presentToast()"></ion-toggle>
+  <ion-item transparent class="item.item-input">
+    <ion-label clear>Notifications</ion-label>
+    <ion-toggle clear [(ngModel)]="toggle1" (ionChange)="presentToast()"></ion-toggle>
   </ion-item>
 
-
-  <button (click)="scheduleNotification1()" ion-button full outline icon-end>First Trimester(1-3Months)
+  <div style="padding-top:50px">
+  <button (click)="scheduleNotification1()" ion-button full>First Trimester(1-3Months)
     <ion-icon name="arrow-forward"></ion-icon>
   </button>
+</div>
 
+  <div style="padding-top:50px">
   <button (click)="scheduleNotification2()"
-  ion-button full outline icon-end>Second Trimester(4-6Months)
+  ion-button full>Second Trimester(4-6Months)
     <ion-icon name="arrow-forward"></ion-icon>
   </button>
-
-  <button (click)="scheduleNotification3()" ion-button full outline icon-end>Third Trimester(7-9Months)
+</div>
+  <div style="padding-top:50px">
+  <button (click)="scheduleNotification3()" ion-button full>Third Trimester(7-9Months)
     <ion-icon name="arrow-forward"></ion-icon>
   </button>
+</div>
   </ion-list>
 </ion-content>

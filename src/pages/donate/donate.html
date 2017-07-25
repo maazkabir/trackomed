@@ -6,27 +6,30 @@
 -->
 <ion-header>
 
+  <ion-navbar transparent>
+    <ion-title>Donation</ion-title>
+  </ion-navbar>
 
 
 </ion-header>
 
 
-<ion-content class="login-background" padding>
-
+<ion-content no-bounce class="login-background" padding>
+<div style="padding-top:70px;">
   <form [formGroup]="todo" (ngSubmit)="logForm()">
 
     <ion-item>
-    <ion-label color="primary">Name</ion-label>
+    <ion-label color="#ffffff">Name</ion-label>
     <ion-input class="item.item-input " formControlName="name"></ion-input>
   </ion-item>
 
   <ion-item>
-  <ion-label color="primary">Phone</ion-label>
-  <ion-input formControlName="phone"></ion-input>
+  <ion-label color="#ffffff">Phone</ion-label>
+  <ion-input color="#ffffff" formControlName="phone"></ion-input>
 </ion-item>
 <ion-item>
-    <ion-label color="primary" stacked>Email</ion-label>
-    <ion-input type="email" formControlName="email"></ion-input>
+    <ion-label color="#ffffff" stacked>Email</ion-label>
+    <ion-input color="#ffffff" type="email" formControlName="email"></ion-input>
   </ion-item>
     <!--  <ion-item>
         <ion-label>Todo</ion-label>
@@ -38,16 +41,13 @@
       </ion-item>
       <button ion-button type="submit">Submit</button>-->
       <ion-item>
-      <ion-label color="primary">Donation</ion-label>
-      <ion-input formControlName="donation"></ion-input>
+      <ion-label color="#ffffff">Donation</ion-label>
+      <ion-input color="#ffffff" formControlName="donation"></ion-input>
     </ion-item>
     <div style="text-align:center;" >
     <button (click)="presentToast()" ion-button type="submit">Submit</button>
   </div>
     </form>
 
-    <button (click)="goBack()" position="bottom" ion-button full outline icon-end>
-      <ion-icon name="arrow-round-back"></ion-icon>
-    </button>
-
+</div>
 </ion-content>
