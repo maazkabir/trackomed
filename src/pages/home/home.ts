@@ -22,8 +22,11 @@ declare var google;
 @Component({
   selector: 'home-page',
   templateUrl: 'home.html'
-})
+	})
+
 export class HomePage {
+	items:any[];
+  searchQuery: string = '';
 	loader: any;
 	  goToCardsPage(){
     this.navCtrl.push(CardsPage);}
@@ -55,13 +58,14 @@ presentLoading() {
   apiKey: any;//AIzaSyD6hMHss5-A960JlIu2T6cvD4H3HIylvns
 
   constructor(platform: Platform, public navCtrl: NavController, public connectivityService: ConnectivityService, public geolocation: Geolocation, public alertCtrl: AlertController,  public loadingCtrl: LoadingController, public storage: Storage) {
-
-		this.presentLoading();
+		
+        this.initializeItems();
+	
+	this.presentLoading();
 	platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
         this.loader.dismiss();
-
 });
 
   }
@@ -77,6 +81,24 @@ if (!done) {
   });
 this.loadMap();
 }
+
+initializeItems(){
+    this.items = [
+      {"name":"Crocin","place":"Madan Medical","lat":"17.3938736","long":"78.4427487"},
+      {"name":"Brakke","place":"Madan Medical","lat":"17.3938736","long":"78.4427487"},
+      {"name":"Panadol","place":"SS Medical Hall","lat":"17.3920913","long":"78.441873"},
+      {"name":"Calpal","place":"SS Medical Hall","lat":"17.3920913","long":"78.441873"},
+      {"name":"Octavin","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
+      {"name":"Advil","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
+      {"name":"Concor","place":"Mohan Medical Hall","lat":"7.3916576","long":"78.4259753"},
+      {"name":"Soframacin","place":"Mohan Medical Hall","lat":"7.3916576","long":"78.4259753"},
+      {"name":"Dettol","place":"Sri Sai Hemanth Medical Hall General Stores","lat":"17.3626936","long":"78.4178855"},
+      {"name":"Savlon","place":"Sri Sai Hemanth Medical Hall General Stores","lat":"17.3626936","long":"78.4178855"},
+      {"name":"Strepsils ","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
+      
+      
+    ]
+  }
 
 
 
@@ -142,7 +164,7 @@ loadMap(){
         zoom: 17,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
-	var image = '../../assets/icon/dot.png';
+	var image = 'assets/dot.png';
         var marker = new google.maps.Marker({
           position: latLng,
           map: this.map,
@@ -235,5 +257,43 @@ loadMap(){
   goToDonatePage(){
     this.navCtrl.push(DonatePage);
   }
+
+	/*getItems(searchbar) {
+  // Reset items back to all of the items
+  this.initializeItems();
+  // set q to the value of the searchbar
+  var q = searchbar.srcElement.value;
+  // if the value is an empty string don't filter the items
+  if (q.trim() == '') {
+    return;
+  }
+
+   this.items = this.items.filter((v) => {
+
+    if (v.name.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+       return true;
+      }
+
+      return false;
+    })
+
+ }*/
+
+getItems(ev: any) {
+    // Reset items back to all of the items
+    this.initializeItems();
+
+    // set val to the value of the searchbar
+    let val = ev.target.value;
+
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.items = this.items.filter((item) => {
+        return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
+  }
+
+
 
 }
