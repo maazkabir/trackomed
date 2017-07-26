@@ -188,6 +188,7 @@ loadMap(){
 
 viewMarker(id:string)
 {
+
  var i=id;
   var item = [
       {"id":"0","name":"Crocin","place":"Madan Medical","lat":"17.3938736","long":"78.4427487"},
@@ -212,7 +213,6 @@ var items = item[i],
     map: this.map,
     title: items.place
  });
-markers.setMap(this.map);
 
 }
 
