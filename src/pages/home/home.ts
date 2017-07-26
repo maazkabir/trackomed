@@ -25,6 +25,7 @@ declare var google;
 	})
 
 export class HomePage {
+
 	items:any[];
   searchQuery: string = '';
 	loader: any;
@@ -52,13 +53,13 @@ presentLoading() {
 
 
 @ViewChild('map') mapElement: ElementRef;
-
+  markers : any[];
   map: any;
   mapInitialised: boolean = false;
   apiKey: any;//AIzaSyD6hMHss5-A960JlIu2T6cvD4H3HIylvns
 
   constructor(platform: Platform, public navCtrl: NavController, public connectivityService: ConnectivityService, public geolocation: Geolocation, public alertCtrl: AlertController,  public loadingCtrl: LoadingController, public storage: Storage) {
-		
+
 	this.presentLoading();
 	platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -90,13 +91,13 @@ initializeItems(){
       {"id":"3","name":"Calpal","place":"SS Medical Hall","lat":"17.3920913","long":"78.441873"},
       {"id":"4","name":"Octavin","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
       {"id":"5","name":"Advil","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
-      {"id":"6","name":"Concor","place":"Mohan Medical Hall","lat":"7.3916576","long":"78.4259753"},
-      {"id":"7","name":"Soframacin","place":"Mohan Medical Hall","lat":"7.3916576","long":"78.4259753"},
+      {"id":"6","name":"Concor","place":"Mohan Medical Hall","lat":"17.3916576","long":"78.4259753"},
+      {"id":"7","name":"Soframacin","place":"Mohan Medical Hall","lat":"17.3916576","long":"78.4259753"},
       {"id":"8","name":"Dettol","place":"Sri Sai Hemanth Medical Hall General Stores","lat":"17.3626936","long":"78.4178855"},
       {"id":"9","name":"Savlon","place":"Sri Sai Hemanth Medical Hall General Stores","lat":"17.3626936","long":"78.4178855"},
       {"id":"10","name":"Strepsils ","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
-      
-      
+
+
     ]
   }
 
@@ -171,11 +172,11 @@ loadMap(){
           icon: image
         });
 
-	
+
 	this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 	   marker.setMap(this.map);
-	
-	
+
+
 
 
 
@@ -195,15 +196,15 @@ viewMarker(id:string)
       {"id":"3","name":"Calpal","place":"SS Medical Hall","lat":"17.3920913","long":"78.441873"},
       {"id":"4","name":"Octavin","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
       {"id":"5","name":"Advil","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
-      {"id":"6","name":"Concor","place":"Mohan Medical Hall","lat":"7.3916576","long":"78.4259753"},
-      {"id":"7","name":"Soframacin","place":"Mohan Medical Hall","lat":"7.3916576","long":"78.4259753"},
+      {"id":"6","name":"Concor","place":"Mohan Medical Hall","lat":"17.3916576","long":"78.4259753"},
+      {"id":"7","name":"Soframacin","place":"Mohan Medical Hall","lat":"17.3916576","long":"78.4259753"},
       {"id":"8","name":"Dettol","place":"Sri Sai Hemanth Medical Hall General Stores","lat":"17.3626936","long":"78.4178855"},
       {"id":"9","name":"Savlon","place":"Sri Sai Hemanth Medical Hall General Stores","lat":"17.3626936","long":"78.4178855"},
       {"id":"10","name":"Strepsils ","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
         ]
 
 var items = item[i],
-     LatLng = new google.maps.LatLng(items.lat, items.long); 
+     LatLng = new google.maps.LatLng(items.lat, items.long);
 
   // Creating a marker and putting it on the map
   var markers = new google.maps.Marker({
@@ -315,6 +316,7 @@ markers.setMap(this.map);
  }*/
 
 getItems(ev: any) {
+this.disableItems();
     // Reset items back to all of the items
     this.initializeItems();
 
@@ -327,7 +329,37 @@ getItems(ev: any) {
         return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
+    else if (val && val.trim() == ''){
+      this.deleteMarkers();
+    }
   }
+
+  disableItems(){
+      this.items = [
+        {"id":"","name":"","place":"","lat":"","long":""},
+
+
+      ]
+    }
+
+/**
+"id":"","name":"","place":"","lat":"","long":""
+*/
+
+
+    setMapOnAll(map) {
+        for (var i = 0; i < this.markers.length; i++) {
+          this.markers[i].setMap(this.map);
+        }
+      }
+      clearMarkers() {
+        this.setMapOnAll(null);
+      }
+
+      deleteMarkers() {
+        this.clearMarkers();
+        this.markers = [];
+      }
 
 
 }

@@ -34,7 +34,8 @@ export class CarePage {
         title: 'Trackomed',
         text: 'Notification 1',
         data: { mydata: 'My hidden message' },
-        at: new Date(new Date().getTime() + 5 * 1000)
+        at: new Date(new Date().getTime() + 5 * 1000),
+        icon: '../assets/Trackomed.png'
       });
 
     });

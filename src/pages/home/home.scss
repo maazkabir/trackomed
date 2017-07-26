@@ -1,4 +1,4 @@
-   
+
 .ios,.md,.wp{
 
  home-page {
@@ -17,19 +17,19 @@
 	 background-size: cover;
     	opacity: 0.7;
 }
- 
+
 /*Set the background to transparent for ion-item*/
 .custom .item {
   background-color: transparent;
   border:none;   /*Removes all borders*/
   color: white;    /*Text color for each item*/
 }
- 
- 
+
+
 .custom .item-complex .item-content, .dark .item-radio .item-content {
   background-color: transparent;
 }
- 
+
 /*Just makes the type white*/
 .custom h2,
 .custom h3,
