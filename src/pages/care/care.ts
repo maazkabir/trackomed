@@ -93,7 +93,7 @@ export class CarePage {
       duration: 3000,
       position: 'bottom',
       showCloseButton: true,
-      closeButtonText: 'Ok'
+      closeButtonText: 'Ok',
       dismissOnPageChange: true
     });
 
