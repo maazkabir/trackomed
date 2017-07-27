@@ -44,6 +44,7 @@ export class CarePage {
         title: 'TrackoMed',
         text: 'Daily Dose',
         data: { mydata: 'Have Some Almonds' },
+        icon: 'res://icon.png',
         at: new Date(new Date().getTime() + 2 * 1000)
 
       });
@@ -60,7 +61,7 @@ export class CarePage {
         title: 'TrackoMed',
         text: 'When Life Gives You Lemons,',
         data: { mydata: 'Make Lemonade!' },
-
+        icon: '../../icon.png',
         at: new Date(new Date().getTime() + 2 * 1000)
       });
 
@@ -76,7 +77,7 @@ export class CarePage {
         title: 'TrackoMed',
         text: 'Sleep Time',
         data: { mydata: 'Have you Slept Yet?' },
-        
+        icon: '../../icon.png',
         at: new Date(new Date().getTime() + 2 * 1000)
       });
 
@@ -93,6 +94,7 @@ export class CarePage {
       position: 'bottom',
       showCloseButton: true,
       closeButtonText: 'Ok'
+      dismissOnPageChange: true
     });
 
     toast.onDidDismiss(()=>{
