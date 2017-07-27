@@ -227,7 +227,6 @@ this.map.panTo(markers.getPosition());
 
 }
 
-
   disableMap(){
     console.log("disable map");
   }
