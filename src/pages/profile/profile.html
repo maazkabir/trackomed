@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Profile</ion-title>
+    <ion-title>My Profile</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,7 +20,7 @@
       Login with Google
     </button>
 
-    <ion-item *ngIf="userProfile">
+    <ion-item *ngIf="userProfile" no-lines>
       <ion-avatar item-left>
         <img [src]="userProfile.photoURL">
       </ion-avatar>

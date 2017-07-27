@@ -41,10 +41,10 @@ export class CarePage {
     this.platform.ready().then(()=>{
       this.localNotifications.schedule({
         id: 1,
-        title: 'Trackomed',
-        text: 'Notification 1',
-        data: { mydata: 'My hidden message' },
-        at: new Date(new Date().getTime() + 5 * 1000)
+        title: 'TrackoMed',
+        text: 'Daily Dose',
+        data: { mydata: 'Have Some Almonds' },
+        at: new Date(new Date().getTime() + 2 * 1000)
 
       });
 
@@ -57,11 +57,11 @@ export class CarePage {
     this.platform.ready().then(()=>{
       this.localNotifications.schedule({
         id: 1,
-        title: 'Trackomed',
-        text: 'Notification 2',
-        data: { mydata: 'My hidden message' },
+        title: 'TrackoMed',
+        text: 'When Life Gives You Lemons,',
+        data: { mydata: 'Make Lemonade!' },
 
-        at: new Date(new Date().getTime() + 5 * 1000)
+        at: new Date(new Date().getTime() + 2 * 1000)
       });
 
     });
@@ -73,11 +73,11 @@ export class CarePage {
     this.platform.ready().then(()=>{
       this.localNotifications.schedule({
         id: 1,
-        title: 'Trackomed',
-        text: 'Notification 3',
-        data: { mydata: 'My hidden message' },
+        title: 'TrackoMed',
+        text: 'Sleep Time',
+        data: { mydata: 'Have you Slept Yet?' },
         
-        at: new Date(new Date().getTime() + 5 * 1000)
+        at: new Date(new Date().getTime() + 2 * 1000)
       });
 
     });
@@ -88,9 +88,11 @@ export class CarePage {
 
   presentToast() {
     let toast = this.toastCtrl.create({
-      message: 'notofications On',
+      message: 'Thank You, You Will Be Notified!',
       duration: 3000,
-      position: 'top'
+      position: 'bottom',
+      showCloseButton: true,
+      closeButtonText: 'Ok'
     });
 
     toast.onDidDismiss(()=>{
