@@ -20,7 +20,17 @@ import { TtrimesterPage } from '../ttrimester/ttrimester';
 export class CarePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, private localNotifications: LocalNotifications, public alertCtrl: AlertController, private toastCtrl: ToastController) {
+      this.platform.ready().then((readySource) => {
+      this.localNotifications.on('click', (notification, state) => {
+        let json = JSON.parse(notification.data);
 
+        let alert = alertCtrl.create({
+          title: notification.title,
+          subTitle: json.mydata
+        });
+        alert.present();
+      })
+    });
   }
 
   ionViewDidLoad() {
@@ -35,6 +45,7 @@ export class CarePage {
         text: 'Notification 1',
         data: { mydata: 'My hidden message' },
         at: new Date(new Date().getTime() + 5 * 1000)
+
       });
 
     });
@@ -49,6 +60,7 @@ export class CarePage {
         title: 'Trackomed',
         text: 'Notification 2',
         data: { mydata: 'My hidden message' },
+
         at: new Date(new Date().getTime() + 5 * 1000)
       });
 
@@ -64,6 +76,7 @@ export class CarePage {
         title: 'Trackomed',
         text: 'Notification 3',
         data: { mydata: 'My hidden message' },
+        
         at: new Date(new Date().getTime() + 5 * 1000)
       });
 

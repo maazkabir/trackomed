@@ -25,6 +25,7 @@ declare var google;
 	})
 
 export class HomePage {
+
 	items:any[];
   searchQuery: string = '';
 	loader: any;
@@ -52,13 +53,12 @@ presentLoading() {
 
 
 @ViewChild('map') mapElement: ElementRef;
-
   map: any;
   mapInitialised: boolean = false;
   apiKey: any;//AIzaSyD6hMHss5-A960JlIu2T6cvD4H3HIylvns
 
   constructor(platform: Platform, public navCtrl: NavController, public connectivityService: ConnectivityService, public geolocation: Geolocation, public alertCtrl: AlertController,  public loadingCtrl: LoadingController, public storage: Storage) {
-		
+
 	this.presentLoading();
 	platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -95,8 +95,8 @@ initializeItems(){
       {"id":"8","name":"Dettol","place":"Sri Sai Hemanth Medical Hall General Stores","lat":"17.3626936","long":"78.4178855"},
       {"id":"9","name":"Savlon","place":"Sri Sai Hemanth Medical Hall General Stores","lat":"17.3626936","long":"78.4178855"},
       {"id":"10","name":"Strepsils ","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
-      
-      
+
+
     ]
   }
 
@@ -171,11 +171,11 @@ loadMap(){
           icon: image
         });
 
-	
+
 	this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 	   marker.setMap(this.map);
-	
-	
+
+
 
 
 
@@ -202,8 +202,6 @@ var i=id;
       {"id":"10","name":"Strepsils ","place":"Rayyan Medical Hall","lat":"17.3796117","long":"78.4286807"},
         ]
 
-
-
 var items = item[i],     
 LatLng = new google.maps.LatLng(items.lat, items.long); 
 
@@ -211,7 +209,6 @@ var infowindow = new google.maps.InfoWindow({
     content: items.place
   });
 var img = 'assets/marker.png';
-        
 
   // Creating a marker and putting it on the map
 var markers = new google.maps.Marker({
@@ -326,6 +323,7 @@ this.map.panTo(markers.getPosition());
  }*/
 
 getItems(ev: any) {
+
     // Reset items back to all of the items
     this.initializeItems();
 
@@ -338,7 +336,9 @@ getItems(ev: any) {
         return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
-  }
+    else if (val && val.trim() == ''){
 
+    }
+  }
 
 }
