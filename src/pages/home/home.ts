@@ -53,7 +53,6 @@ presentLoading() {
 
 
 @ViewChild('map') mapElement: ElementRef;
-  markers : any[];
   map: any;
   mapInitialised: boolean = false;
   apiKey: any;//AIzaSyD6hMHss5-A960JlIu2T6cvD4H3HIylvns
@@ -316,7 +315,7 @@ var items = item[i],
  }*/
 
 getItems(ev: any) {
-this.disableItems();
+
     // Reset items back to all of the items
     this.initializeItems();
 
@@ -330,24 +329,18 @@ this.disableItems();
       })
     }
     else if (val && val.trim() == ''){
-      this.deleteMarkers();
+
     }
   }
 
-  disableItems(){
-      this.items = [
-        {"id":"","name":"","place":"","lat":"","long":""},
-
-
-      ]
-    }
+  
 
 /**
 "id":"","name":"","place":"","lat":"","long":""
 */
 
 
-    setMapOnAll(map) {
+    /***setMapOnAll(map) {
         for (var i = 0; i < this.markers.length; i++) {
           this.markers[i].setMap(this.map);
         }
@@ -359,7 +352,7 @@ this.disableItems();
       deleteMarkers() {
         this.clearMarkers();
         this.markers = [];
-      }
+      }**/
 
 
 }
