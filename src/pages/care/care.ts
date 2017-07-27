@@ -44,7 +44,8 @@ export class CarePage {
         title: 'Trackomed',
         text: 'Notification 1',
         data: { mydata: 'My hidden message' },
-        at: new Date(new Date().getTime() + 5 * 1000)
+        icon: 'res://icon.png',
+        at: new Date(new Date().getTime() + 2 * 1000)
 
       });
 
@@ -60,8 +61,8 @@ export class CarePage {
         title: 'Trackomed',
         text: 'Notification 2',
         data: { mydata: 'My hidden message' },
-
-        at: new Date(new Date().getTime() + 5 * 1000)
+        icon: '../../icon.png',
+        at: new Date(new Date().getTime() + 2 * 1000)
       });
 
     });
@@ -76,8 +77,8 @@ export class CarePage {
         title: 'Trackomed',
         text: 'Notification 3',
         data: { mydata: 'My hidden message' },
-        
-        at: new Date(new Date().getTime() + 5 * 1000)
+        icon: '../../icon.png',
+        at: new Date(new Date().getTime() + 2 * 1000)
       });
 
     });
@@ -90,7 +91,9 @@ export class CarePage {
     let toast = this.toastCtrl.create({
       message: 'notofications On',
       duration: 3000,
-      position: 'top'
+      position: 'down',
+      showCloseButton: true,
+      dismissOnPageChange: true
     });
 
     toast.onDidDismiss(()=>{

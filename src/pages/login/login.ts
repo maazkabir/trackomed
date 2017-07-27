@@ -34,6 +34,19 @@ export class LoginPage {
         this.userProfile = null;
       }
     });
+
+ /**Test to navigate to home page***/ 
+    this.googlePlus.login({
+      'webClientId': '682956519321-qc6vmccqiqjhceiuce3rna56hs8ikf75.apps.googleusercontent.com',
+      'offline': true
+    }).then( res => {
+      firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken))
+        .then( success => {
+          this.navCtrl.setRoot(HomePage);
+          console.log("Firebase success: " + JSON.stringify(success));
+        })
+        .catch( error => console.log("Firebase failure: " + JSON.stringify(error)));
+      }).catch(err => console.error("Error: ", err));
   }
 
 	gotohome(){
